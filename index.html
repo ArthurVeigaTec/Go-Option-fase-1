@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
+
+</head>
+<body>
+
+    <div class="main">
+        <div class="c_chart">
+            <canvas id="canvas"></c anvas>
+        </div>
+
+        <div class="menu">
+            <!--
+            <div class="sub_menu sub_menu_ativo">
+                <div class="header">
+                    <span>Ativo</span>
+                </div>
+                <div class="body">
+                    <input type="text" placeholder="Digite o item personalizado">
+
+                    <span class="active">Linha</span>
+                    <span>Velas</span>
+                    <span>Barras</span>
+                </div>
+            </div>
+
+            <button>Ativo</button>
+            <button>Tipo Gráfico</button>
+            <button>Período Vela</button>
+            <button>Ferramentas de Desenho</button>
+            <button>Indicadores</button>
+            <button>Perído Gráfico</button>
+            -->
+
+
+        </div>
+
+        <div class="c_menu_buy_sell">
+
+            <div class="menu_buy_sell">
+                <button class="btn_buy_sell btn_buy">
+                    <span>Comprar</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M17.25 15.25V6.75H8.75M17 7L6.75 17.25" stroke="#84E4AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="btn_buy_sell btn_sell">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M6.75 8.75V17.25H15.25M7 17L17.25 6.75" stroke="#F98BA6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Vender</span>
+                </button>
+
+                <div class="menu_notif">
+                    <button class="btn_notif btn_notif_good">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                            <path d="M10.5 12.75L10.9337 13.6744C11.2775 14.407 12.3036 14.4492 12.7064 13.7473L15 9.75M12.75 19.25C8.74594 19.25 5.5 16.0041 5.5 12C5.5 7.99594 8.74594 4.75 12.75 4.75C16.7541 4.75 20 7.99594 20 12C20 16.0041 16.7541 19.25 12.75 19.25Z" stroke="#56D990" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="btn_notif btn_notif_bad">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                            <path d="M10 9.75L14.5 14.25M14.5 9.75L10 14.25M12.25 19.25C8.24594 19.25 5 16.0041 5 12C5 7.99594 8.24594 4.75 12.25 4.75C16.2541 4.75 19.5 7.99594 19.5 12C19.5 16.0041 16.2541 19.25 12.25 19.25Z" stroke="#F76489" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+
+
+
+
+    <script type="module" src="index.js"></script>
+</body>
+</html>

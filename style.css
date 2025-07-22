@@ -1,0 +1,320 @@
+/* Estilo para WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #121212; /* fundo do container da barra */
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a2a; /* cor da barra */
+    border-radius: 10px;
+    border: 1px solid #000;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #444; /* cor quando passa o mouse */
+  }
+  
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #2a2a2a #121212;
+  }
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+body{
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.main{
+    width: 100vw;
+    height: 100dvh;
+    display: flex;
+    background-color: #121217;
+    box-sizing: border-box;
+}
+
+.menu{
+    position: absolute;
+    bottom: 90px;
+    left: 50px;
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+
+    color: var(--white, #FAFAFA);
+
+    /* text-sm/leading-6/font-medium */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 171.429% */
+
+}
+
+
+
+
+.menu .sub_menu{
+    position: absolute;
+    z-index: 2;
+    bottom:0px;
+
+    display: none;
+    width: 480px;
+    height: 300px;
+
+    padding: 0px var(--var-0, 0px);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+
+    border-radius: var(--radius-md, 8px);
+    background: var(--Gray-900, #121217);
+
+    /* Shadows/Overlay/Light */
+    box-shadow: 0px 0px 0px 1px rgba(18, 18, 23, 0.10), 0px 24px 48px 0px rgba(18, 18, 23, 0.03), 0px 10px 18px 0px rgba(18, 18, 23, 0.03), 0px 5px 8px 0px rgba(18, 18, 23, 0.04), 0px 2px 4px 0px rgba(18, 18, 23, 0.04);
+    transition: all 0.3s ease;
+}
+
+.menu .sub_menu_ativo{
+    display: flex;
+}
+
+.menu .sub_menu .header{
+    display: flex;
+    padding: var(--0, 4px) var(--4, 16px);
+    align-items: center;
+    gap: var(--1, 8px);
+    align-self: stretch;
+    
+    border-radius: 8px 8px 0px 0px;
+    background: rgba(250, 250, 250, 0.10);
+}
+
+.menu .sub_menu .body{
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 4px 8px;
+    gap: 8px;
+    box-sizing: border-box;
+}
+
+.menu .sub_menu .body span{
+    padding: 4px 8px;
+    color: var(--Gray-200, #D1D1DB);
+
+    /* text-sm/leading-6/font-normal */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 171.429% */
+
+    cursor: pointer;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.menu .sub_menu .body input{
+    padding: 4px 8px;
+    color: var(--Gray-200, #D1D1DB);
+
+    /* text-sm/leading-6/font-normal */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 171.429% */
+
+    box-sizing: border-box;
+    max-width: 100%;
+
+
+    background: none;
+    border: 1px solid rgba(250, 250, 250, 0.10);
+    border-radius: var(--radius-md, 4px);
+}
+
+.menu .sub_menu .body span.active{
+    border-radius: var(--0, 4px);
+    background: rgba(250, 250, 250, 0.05);
+}
+
+
+.menu .sub_menu .body span:hover{
+    color: var(--white, #FAFAFA);
+}
+
+
+
+
+.menu button {
+    display: flex;
+    padding: var(--1, 8px) var(--2, 12px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--0, 4px);
+    align-self: stretch;
+
+    border-radius: var(--radius-md, 8px);
+    border: 1px solid rgba(250, 250, 250, 0.10);
+    background: rgba(5, 5, 5, 0.20);
+    backdrop-filter: blur(calc(var(--9, 36px) / 2));
+
+    color: var(--white, #FAFAFA);
+
+    /* text-sm/leading-6/font-medium */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 171.429% */
+
+    cursor: pointer;
+    max-width: 200px;
+}
+
+.menu button:hover {
+    background: rgba(5, 5, 5, 0.409);
+    backdrop-filter: blur(calc(var(--9, 36px) / 2));
+}
+
+.c_chart{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+
+canvas{
+    width: 100%;
+    height: 100%;
+}
+
+.c_menu_buy_sell{
+    display: flex;
+    align-items: center;
+
+    position: absolute;
+    bottom: 90px;
+    right: 130px;
+}
+
+.menu_buy_sell{
+    display: inline-flex;
+    padding: var(--6, 24px) var(--4, 16px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;
+
+    border-radius: var(--2, 12px);
+    border: 1px solid rgba(250, 250, 250, 0.10);
+    background: rgba(5, 5, 5, 0.20);
+    backdrop-filter: blur(calc(var(--9, 36px) / 2));
+}
+
+.btn_buy_sell{
+    display: flex;
+    padding: var(--1, 8px) var(--2, 12px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--0, 4px);
+    align-self: stretch;
+
+    border-radius: var(--radius-md, 8px);
+
+    border: none;
+    cursor: pointer;
+}
+
+.btn_buy_sell span{
+    color: var(--white, #FAFAFA);
+
+    /* text-base/leading-8/font-medium */
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px; /* 200% */
+}
+
+.btn_buy{
+    background: linear-gradient(225deg, #2DCA72 0%, #0F4527 100%);
+}
+    
+.btn_buy:hover{
+    background: linear-gradient(225deg, #2DCA72 0%, #0f4e2b 100%);
+}
+
+.btn_sell{
+    background: linear-gradient(225deg, #F53D6B 0%, #880727 100%);
+}
+
+.btn_sell:hover{
+    background: linear-gradient(225deg, #F53D6B 0%, #94082b 100%);
+}
+
+.menu_notif{
+    display: flex;
+    align-items: flex-start;
+    gap: var(--1, 8px);
+    align-self: stretch;
+    justify-content: center;
+}
+
+.btn_notif{
+    display: flex;
+    padding: var(--1, 8px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--var-0, 0px);
+    flex: 1 0 0;
+    border-radius: var(--radius-md, 8px);
+    background: linear-gradient(243deg, rgba(250, 250, 250, 0.00) 0%, rgba(250, 250, 250, 0.05) 100%), #121217;
+    cursor: pointer;
+}
+
+.btn_notif:hover{
+    background: linear-gradient(243deg, rgba(250, 250, 250, 0.00) 0%, rgba(250, 250, 250, 0.05) 100%), #16161d;
+}
+
+.btn_notif_good{
+    border: 1px solid rgba(100, 247, 142, 0.4);
+}
+
+.btn_notif_bad{
+    border: 1px solid rgba(247, 100, 137, 0.40);
+}
+
+
+
+
+
+@media (max-width: 720px) {
+    .menu {
+        top: 65vh;
+        left: 0px;
+        scale: 0.5;
+    }
+    .c_menu_buy_sell {
+        bottom: 50px;
+        right: 80px;
+        scale: 0.6;
+    }
+}
+
+
+
