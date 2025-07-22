@@ -1,3 +1,8 @@
+import { breathCirclesAnimation } from "../breathCirclesAnimation.js";
+import { getRealY, getRealX } from "../tools.js";  
+import { getValuesSliced } from "../tools.js";
+import { VisualGrid } from "../visualGrid.js";
+
 const style = {
     "widthShadow" : 2,
     "radiusShadow" : 0,
@@ -15,8 +20,6 @@ const style = {
     "redShadow": "#D50B3E"
 }
 
-import { getValuesSliced } from "../tools.js";
-import { VisualGrid } from "../visualGrid.js";
 
 /* Each cabndle has 4 positions
 positions_y = {
@@ -34,6 +37,7 @@ export class Candle{
         this.navigation = navigation;
         this.data = data;
         this.valuesSliced = [];
+        this.deltaCurrent = 0;
 
         style["backgroundColor"] = backgroundColor;
 
@@ -46,6 +50,14 @@ export class Candle{
 
         this.needUpdate = false;
         this.needAnimationUpdate = true; //if the user is seeing the most recent data
+
+
+        //BCA -> breath circle animation
+        this.x = this.canvas.width/2;
+        this.y = this.canvas.height/2;
+        this.sizeBCA = 40;
+        this.secondsBCA = 0.8;
+        this.BCA = new breathCirclesAnimation(this.chart, this.x, this.y, this.sizeBCA, this.chart.fps, this.secondsBCA);
     }
 
     get widthPoint(){
@@ -343,6 +355,11 @@ export class Candle{
 
         this.smoothUpdateValues();
 
+        const currentValue = this.data.valuesStock[this.data.valuesStock.length - 1];
+        if(currentValue){
+            this.deltaCurrent = currentValue.close - currentValue.open;
+        }
+
         let widthPoint = this.widthPoint * this.navigation.zoomFactor;
         this.valuesSliced = getValuesSliced(this.chart, widthPoint);
 
@@ -383,6 +400,24 @@ export class Candle{
         ctx.restore();
 
 
+    }
+
+
+    //breath circle animation (called by valuesScale.js)
+    //need to be called by valuesScale.js because need to be upper from the lines and above from the valuesScale box content
+    renderBCA(){
+        
+        const currentValue = this.data.valuesStock[this.data.valuesStock.length - 1];
+        if(currentValue){
+            const canvas = this.canvas;
+            const {offsetX, offsetXUpdate, offsetY, zoomFactor, scaleY} = this.navigation;
+
+            const colorBCA = this.deltaCurrent >= 0 ? "green" : "red";
+
+            this.BCA.x = getRealX(currentValue.positions.centerX, canvas, offsetX, offsetXUpdate, zoomFactor);
+            this.BCA.y = getRealY(currentValue.positions.yClose, canvas, offsetY, zoomFactor, scaleY)
+            this.BCA.render(colorBCA);
+        }
     }
 }
 

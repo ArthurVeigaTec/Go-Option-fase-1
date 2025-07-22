@@ -189,9 +189,7 @@ export class valuesScale{
 
             //create the breath circle animation (BCA) in the line chart
             //has to be here because BCA need to be upper fro the lines and above the box content
-            if(this.chart.typeChart === "line"){
-                this.chart.render.renderBCA();
-            }
+            this.chart.render.renderBCA();
 
 
 
